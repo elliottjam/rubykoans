@@ -43,15 +43,15 @@ class AboutClasses < Neo::Koan
     fido = Dog2.new
     fido.set_name("Fido")
 
-    assert_equal __, fido.instance_variable_get("@name")
+    assert_equal "Fido", fido.instance_variable_get("@name")
   end
 
   def test_you_can_rip_the_value_out_using_instance_eval
     fido = Dog2.new
     fido.set_name("Fido")
 
-    assert_equal __, fido.instance_eval("@name")  # string version
-    assert_equal __, fido.instance_eval { @name } # block version
+    assert_equal "Fido", fido.instance_eval("@name")  # string version
+    assert_equal "Fido", fido.instance_eval { @name } # block version
   end
 
   # ------------------------------------------------------------------
@@ -69,7 +69,7 @@ class AboutClasses < Neo::Koan
     fido = Dog3.new
     fido.set_name("Fido")
 
-    assert_equal __, fido.name
+    assert_equal "Fido", fido.name
   end
 
   # ------------------------------------------------------------------
@@ -87,7 +87,7 @@ class AboutClasses < Neo::Koan
     fido = Dog4.new
     fido.set_name("Fido")
 
-    assert_equal __, fido.name
+    assert_equal "Fido", fido.name
   end
 
   # ------------------------------------------------------------------
@@ -101,7 +101,7 @@ class AboutClasses < Neo::Koan
     fido = Dog5.new
 
     fido.name = "Fido"
-    assert_equal __, fido.name
+    assert_equal "Fido", fido.name
   end
 
   # ------------------------------------------------------------------
@@ -115,11 +115,11 @@ class AboutClasses < Neo::Koan
 
   def test_initialize_provides_initial_values_for_instance_variables
     fido = Dog6.new("Fido")
-    assert_equal __, fido.name
+    assert_equal "Fido", fido.name
   end
 
   def test_args_to_new_must_match_initialize
-    assert_raise(___) do
+    assert_raise(ArgumentError) do
       Dog6.new
     end
     # THINK ABOUT IT:
@@ -130,7 +130,7 @@ class AboutClasses < Neo::Koan
     fido = Dog6.new("Fido")
     rover = Dog6.new("Rover")
 
-    assert_equal __, rover.name != fido.name
+    assert_equal true, rover.name != fido.name
   end
 
   # ------------------------------------------------------------------
