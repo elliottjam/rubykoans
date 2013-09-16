@@ -63,6 +63,10 @@ def score(dice)
    500
   when [6,6,6]
    600
+  when [2,5,2,2,3]
+    250
+  when [5,5,5,5]
+    550
   end
 end
 
